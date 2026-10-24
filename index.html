@@ -976,7 +976,7 @@ const Walk = (() => {
   let sp = 0, running = false;
   function tick(){
     const target = progress(), d = target - sp;
-    sp += Math.sign(d) * Math.min(Math.abs(d), Math.max(Math.abs(d) * .09, .003));   /* soft ease, but never a long crawl at the end */
+    sp += d * .22; if (Math.abs(target - sp) < .0004) sp = target;   /* follows the scroll at a steady pace, same lag everywhere */
     frame(); running = sp !== target; if (running) requestAnimationFrame(tick);
   }
   function kick(){ if (!running){ running = true; requestAnimationFrame(tick); } }
@@ -985,12 +985,13 @@ const Walk = (() => {
     const p = sp; if (Math.abs(p - last) < .0002) return; last = p;
     /* zoom only until the doorway fills ~3/4 of the screen height, never through it */
     const SMAX = Math.max(1.4, Math.min(.74 * vh / (.4272 * H), .62 * vw / (.0999 * W)));
-    const z = ease(seg(p, .03, .42)), S = 1 + (SMAX - 1) * z;
+    /* one even walk: the camera keeps the same pace from the street to the doorway (zoom grows by the same ratio per scroll) */
+    const S = Math.pow(SMAX, seg(p, .03, .62)), z = (S - 1) / (SMAX - 1);
     const ox = DX*W, oy = DY*H, cx = L + ox, cy = T + oy;
     const tx = (vw/2 - cx) * z, ty = (vh*.53 - cy) * z;
     sc.style.transform = `translate(${L + tx + ox*(1-S)}px,${T + ty + oy*(1-S)}px) scale(${S})`;
-    const open = seg(p, .3, .58);          /* hinge on the right, swings into the shop */
-    door.style.transform = `rotateY(${80 * ease(open)}deg)`;
+    const open = seg(p, .3, .6);           /* hinge on the right, swings into the shop at an even pace */
+    door.style.transform = `rotateY(${80 * open}deg)`;
     door.style.boxShadow = open ? `24px 0 30px rgba(0,0,0,${.6*open})` : "";
     dl.style.opacity = Math.min(1, open * 1.4); spill.style.opacity = open;
     sc.classList.toggle("open", open > .02);
@@ -998,8 +999,8 @@ const Walk = (() => {
     ui.style.opacity = 1 - seg(p, .0, .1); ui.style.transform = `translateY(${-30 * seg(p, 0, .1)}px)`; ui.style.pointerEvents = p > .05 ? "none" : "";
     rains.forEach(c => c && (c.style.opacity = 1 - .5 * seg(p, .3, .6)));
     glow.style.opacity = .22 * seg(p, .55, .68) * (1 - seg(p, .72, .88));
-    const x = seg(p, .64, .9); xf.style.opacity = x; xf.classList.toggle("on", x > .9);
-    if (xin) xin.style.transform = x >= 1 ? "none" : `scale(${1.05 - .05 * out(x)})`;
+    const x = seg(p, .6, .9); xf.style.opacity = x; xf.classList.toggle("on", x > .9);
+    if (xin) xin.style.transform = x >= 1 ? "none" : `scale(${1.05 - .05 * x})`;
     Sound.muffle(p > .6);
   }
   function enter(){
@@ -1009,7 +1010,7 @@ const Walk = (() => {
     const stop = () => { cancel = true; }; let cancel = false;
     ["wheel","touchstart","keydown"].forEach(t => addEventListener(t, stop, { once:true, passive:true }));
     (function step(now){ if (cancel){ h.style.scrollBehavior = ""; return; }
-      const k = Math.min(1, (now - t0) / dur); scrollTo(0, start + dist * ease(k));
+      const k = Math.min(1, (now - t0) / dur); scrollTo(0, start + dist * k);
       if (k < 1) requestAnimationFrame(step); else h.style.scrollBehavior = ""; })(t0);
   }
   door.onclick = enter; $("#enterBtn").onclick = enter;
