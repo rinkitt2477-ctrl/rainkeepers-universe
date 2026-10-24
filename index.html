@@ -1355,7 +1355,7 @@ const About = (() => {
     if (sec.hidden) return;
     const vh = innerHeight; track.style.height = "auto";
     const lb = last.offsetTop + last.offsetHeight + (last.offsetParent === track ? 0 : last.offsetParent.offsetTop);
-    end = lb + .75 * vh; knee = lb / end;
+    end = lb / PULL; knee = PULL;   /* one even speed: the same scroll distance moves the clip the same amount, start to end */
     track.style.height = (end + vh) + "px";
   }
   /* the clip: 0–3.6 s camera pulls back from the shelf, 3.6–6 s rain-mist turns everything to paper */
@@ -1380,7 +1380,7 @@ const About = (() => {
   vid.addEventListener("seeked", seek);
   function target(){
     const p = clamp((scrollY - track.offsetTop) / end);
-    return p < knee ? p / knee * PULL : PULL + (p - knee) / (1 - knee) * (1 - PULL);
+    return p;
   }
   function draw(c){
     if (vidOn){ curT = c * (dur - 1 / 48); seek(); return; }
