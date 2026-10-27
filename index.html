@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&family=Sarabun:ital,wght@0,400;0,500;0,600;1,400&family=Itim&display=swap">
 <style>
-/* Layout: one continuous walk — a rain-soaked street with a glowing shopfront (3 rain depths, drips, splashes) → push the door → a lamplit interior with a swinging pendant and a 3D bookcase → books open with a turning cover. Single committed night palette. */
+/* Layout: one continuous walk — a rain-soaked street with a glowing shopfront (3 rain depths, drips, splashes) → push the door → a lamplit photographic interior with a real bookcase → books open with a turning cover. Single committed night palette. */
 :root{
   color-scheme:dark;
   --night:#060a10; --street:#0c131b; --rain:#a9c1d8;
@@ -377,20 +377,6 @@ button{font:inherit;color:inherit}
 .ab-h{font-family:var(--f-sign);font-weight:700;font-size:calc(var(--u) * 74);line-height:1.18;margin-top:calc(var(--u) * 14);text-shadow:0 calc(var(--u) * 12) calc(var(--u) * 32) rgba(0,0,0,.6),0 2px 4px rgba(0,0,0,.5)}
 .ab-h span{display:block;white-space:nowrap}
 .ab-sub{font-family:var(--f-body);font-size:max(15px,calc(var(--u) * 15));color:rgba(247,245,239,.88);margin-top:calc(var(--u) * 16);text-shadow:0 2px 12px rgba(0,0,0,.8)}
-.scrap{position:absolute;width:calc(var(--u) * 300);box-sizing:border-box;padding:calc(var(--u) * 26) calc(var(--u) * 26) calc(var(--u) * 24);color:var(--ink2);
-  background:#d6bf98 url(img/paper.jpg) center/100% 100% no-repeat;filter:drop-shadow(0 18px 22px rgba(0,0,0,.55)) drop-shadow(0 2px 3px rgba(0,0,0,.4))}
-.scrap svg{display:block;width:calc(var(--u) * 30);height:calc(var(--u) * 30);color:#7a3a14;margin-bottom:calc(var(--u) * 14)}
-.scrap h3{font-family:var(--f-sign);font-weight:600;font-size:calc(var(--u) * 19.6);line-height:1.35;margin:0 0 calc(var(--u) * 8)}
-.scrap p{font-family:var(--f-body);font-size:max(14px,calc(var(--u) * 13.2));line-height:1.7;color:#4a3020;margin:0}
-.scrap.L{right:calc(50% + var(--u) * var(--gap));text-align:right;transform:rotate(-1.4deg)}
-.scrap.L svg{margin-left:auto}
-.scrap.R{left:calc(50% + var(--u) * var(--gap));transform:rotate(1.6deg)}
-.scrap.C{left:50%;text-align:center;transform:translateX(-50%) rotate(-.6deg)}
-.scrap.C svg{margin-inline:auto;width:calc(var(--u) * 96);height:calc(var(--u) * 12);margin-top:calc(var(--u) * 6)}
-.scrap .pushpin{top:8px}
-.row1{top:calc(1500 / 8 * 1vh);--gap:78}
-.row2{top:calc(1840 / 8 * 1vh);--gap:88}
-.row3{top:calc(2200 / 8 * 1vh)}
 .sheet{position:relative;filter:drop-shadow(0 26px 30px rgba(0,0,0,.55)) drop-shadow(0 3px 4px rgba(0,0,0,.45))}
 .paper{position:relative;color:#3a2414;background:#d6bf98 url(img/paper.jpg) center/100% 100% no-repeat}
 .paper > *{position:relative;z-index:1}
@@ -435,19 +421,6 @@ button{font:inherit;color:inherit}
 /* the plain section that rises out of the mist */
 .ab-letter{position:relative;z-index:2;margin-top:-34vh;color:var(--ink2);background:linear-gradient(rgba(210,185,143,0),var(--pp) 34vh)}
 .ab-letter .in{max-width:1120px;margin:0 auto;padding:34vh 64px 140px}
-.ab-head{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:end;padding-bottom:40px;border-bottom:1px solid rgba(46,28,15,.18)}
-.ab-head h2{font-family:var(--f-sign);font-weight:700;font-size:clamp(34px,4.6vw,62px);line-height:1.15;margin:0}
-.ab-head h2 span{display:block}.ab-head h2 span:last-child{color:#8a6a48}
-.ab-head p{font-family:var(--f-body);font-size:15px;line-height:1.75;color:rgba(46,28,15,.72);margin:0}
-.ab-row{display:grid;grid-template-columns:260px minmax(0,1fr);gap:40px;padding-block:44px;border-bottom:1px solid rgba(46,28,15,.18)}
-.ab-row b{display:block;font-family:var(--f-sign);font-weight:600;font-size:15px;letter-spacing:.04em}
-.ab-row small{display:block;font-family:var(--f-body);font-size:13.5px;color:rgba(46,28,15,.6);margin-top:2px}
-.ab-row p{font-family:var(--f-body);font-size:clamp(17px,1.6vw,21px);line-height:1.75;max-width:680px;margin:0}
-.ab-sign{position:relative;display:grid;grid-template-columns:260px minmax(0,1fr);gap:40px;padding-top:56px}
-.ab-sign .last{font-family:var(--f-hand);font-size:clamp(26px,3vw,38px);line-height:1.3;color:#4a2a12;margin:0}
-.ab-sign .who{font-family:var(--f-hand);font-size:24px;margin-top:14px;color:#3a2414}
-.ab-sign .ps{font-family:var(--f-body);font-size:15px;color:rgba(46,28,15,.72);margin-top:26px}
-.ab-sign .stamp{position:relative;right:auto;bottom:auto;margin-top:6px}
 .ab-letter .contact{margin-top:64px;color:rgba(46,28,15,.7);border-top-color:rgba(46,28,15,.18)}
 .ab-letter .contact b{color:var(--ink2)}
 .stamp{position:absolute;z-index:2;right:40px;bottom:34px;width:88px;height:88px;border-radius:50%;display:grid;place-items:center;transform:rotate(-14deg);
@@ -460,19 +433,10 @@ button{font:inherit;color:inherit}
   #v-about{--u:min(calc(100vw / 390),1.6px)}
   .ab-content{display:flex;flex-direction:column;align-items:center;padding:112vh 22px 0;box-sizing:border-box}
   #v-about .ab-papers{position:relative;left:auto;top:auto;transform:none;width:100%;margin-top:24vh}
-  #v-about .ab-intro,#v-about .scrap{position:relative;left:auto;right:auto;top:auto;transform:none}
+  #v-about .ab-intro{position:relative;left:auto;right:auto;top:auto;transform:none}
   .ab-intro{width:100%}
   .ab-h{font-size:clamp(34px,calc(var(--u) * 46),72px)}
-  .scrap{width:min(100%,calc(var(--u) * 320));text-align:center;padding:26px 22px 22px}
-  .scrap svg{margin-inline:auto}
-  .scrap h3{font-size:19px}
-  #v-about .scrap.L{transform:rotate(-1.2deg)}#v-about .scrap.R{transform:rotate(1.4deg)}#v-about .scrap.C{transform:rotate(-.5deg)}
-  .scrap:first-of-type{margin-top:24vh}
-  .scrap + .scrap{margin-top:16vh}
   .ab-letter .in{padding:34vh 22px 110px}
-  .ab-head,.ab-row,.ab-sign{grid-template-columns:1fr;gap:14px}
-  .ab-head{gap:18px}
-  .ab-row{padding-block:32px}
 }
 
 /* ---------- journal ---------- */
@@ -1323,29 +1287,6 @@ function runPreloader(){
   }
 }
 
-/* ---------------- torn paper edges ---------------- */
-function seeded(seed){ return () => { seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
-function tearPapers(){
-  document.querySelectorAll(".paper[data-tear]").forEach((el, n) => {
-    const sides = el.dataset.tear.split(" "), R = seeded(9001 + n * 77), pts = [];
-    const edge = (a, b, along, far, torn) => {
-      const steps = torn ? 60 : 1;
-      for (let i = 0; i <= steps; i++){
-        const t = a + (b - a) * i / steps;
-        let d = 0;
-        if (torn && i > 0 && i < steps) d = .25 + R() * 1.3 + (R() < .1 ? R() * 2.2 : 0);
-        const inset = far ? 100 - d : d;
-        pts.push(along === "x" ? [t, inset] : [inset, t]);
-      }
-    };
-    edge(0, 100, "x", false, sides.includes("top"));
-    edge(0, 100, "y", true, sides.includes("right"));
-    edge(100, 0, "x", true, sides.includes("bottom"));
-    edge(100, 0, "y", false, sides.includes("left"));
-    el.style.clipPath = "polygon(" + pts.map(([x, y]) => `${x.toFixed(2)}% ${y.toFixed(2)}%`).join(",") + ")";
-  });
-}
-
 /* ---------------- about: camera pulls back from the empty shelf, then rain-mist takes over ---------------- */
 const About = (() => {
   const track = $("#abTrack"), cam = $("#abCam"), ml = $("#abMl"), mr = $("#abMr"), mf = $("#abMf"), last = $("#abLast"), sec = $("#v-about");
@@ -1442,7 +1383,7 @@ let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(ren
 addEventListener("hashchange", route);
 
 dropLetters($("#tagline"), "ร้านหนังสือที่เปิดเฉพาะคืนที่ฝนตก"); splitWords($("#shopname"));
-renderEntries(); tearPapers();
+renderEntries();
 Street.start(); Glass.start(); WinRain.start(); Dust.start(); Walk.layout();
 route();
 runPreloader();

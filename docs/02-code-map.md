@@ -35,7 +35,6 @@
 | `Fog`, `renderEntries` | หน้า journal | |
 | `renderToc` | การ์ดบทใต้ตู้ | ซ่อนถ้าไม่มีบท |
 | cursor, preloader | | |
-| `seeded`, `tearPapers` | สุ่มขอบกระดาษขาด | ตอนนี้ไม่มีกระดาษใช้ `data-tear` แล้ว (no-op) |
 | `About` | หน้า about | ดูด้านล่าง |
 | routing | `route()` สลับหน้า, `updateNav()` เมนูทึบเมื่อเลื่อน | `About.show()/hide()`, `Fog.show()/hide()` |
 
